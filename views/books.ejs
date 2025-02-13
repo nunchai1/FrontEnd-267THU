@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Books</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+      background-color: #f4f4f9;
+    }
+    h1 {
+      color: #2c3e50;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 20px;
+    }
+    th, td {
+      padding: 12px;
+      border: 1px solid #ddd;
+      text-align: left;
+    }
+    th {
+      background-color: #3498db;
+      color: white;
+    }
+    tr:nth-child(even) {
+      background-color: #f9f9f9;
+    }
+    a {
+      text-decoration: none;
+      color: #3498db;
+      font-size: 16px;
+      margin-right: 10px;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+    .create-book {
+      margin-top: 20px;
+      display: inline-block;
+      padding: 10px 20px;
+      background-color: #3498db;
+      color: white;
+      text-decoration: none;
+      border-radius: 5px;
+    }
+    .create-book:hover {
+      background-color: #2980b9;
+    }
+  </style>
+</head>
+<body>
+
+<h1>Books</h1>
+
+<table>
+  <tr>
+    <th>Title</th>
+    <th>Author</th>
+    <th>Actions</th>
+  </tr>
+  <% for(var i=0; i < books.length; i++) { %>
+  <tr>
+    <td><%= books[i].title %></td>
+    <td><%= books[i].author %></td>
+    <td>
+      <a href="/book/<%= books[i].id %>">View</a>
+      <a href="/update/<%= books[i].id %>">Edit</a>
+      <a href="/delete/<%= books[i].id %>">Delete</a>
+    </td>
+  </tr>
+  <% } %>
+</table>
+
+<a class="create-book" href="/create">Create New Book</a>
+
+</body>
+</html>
